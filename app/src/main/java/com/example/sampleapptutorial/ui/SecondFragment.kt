@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
+import coil.load
+import com.example.sampleapptutorial.R
 import com.example.sampleapptutorial.databinding.FragmentSecondBinding
 import com.example.sampleapptutorial.model.User
 import com.example.sampleapptutorial.network.Retrofit
@@ -35,6 +37,9 @@ class SecondFragment : Fragment() {
                 binding.usernameTextView.text = response.body()?.name
                 binding.companyTextView.text = response.body()?.company
                 binding.locationTextView.text = response.body()?.location
+                binding.avatarImageView.load(response.body()?.avatar_url) {
+                    placeholder(R.drawable.ic_launcher_background)
+                }
             }
 
             override fun onFailure(call: Call<User>, t: Throwable) {

@@ -1,6 +1,7 @@
 package com.example.sampleapptutorial.ui
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -37,7 +38,7 @@ class SecondFragment : Fragment() {
             }
 
             override fun onFailure(call: Call<User>, t: Throwable) {
-                TODO("Not yet implemented")
+                Log.e("error", "onFailure: ${t.localizedMessage}")
             }
         })
 
